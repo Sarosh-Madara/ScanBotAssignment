@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             Title="Scan Gallery"
+             xmlns:viewmodels="clr-namespace:ScanGallery.ViewModels"
+             x:Class="ScanGallery.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete All" Clicked="DeleteButton_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <viewmodels:ImagesViewModel/>
+    </ContentPage.BindingContext>
+
+
+
+
+    <StackLayout x:DataType="viewmodels:ImagesViewModel">
+
+        <ScrollView Padding="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+
+            <Grid VerticalOptions="Start" HorizontalOptions="Start"  x:Name="ImageGrid"  x:DataType="viewmodels:ImagesViewModel">
+
+            </Grid>
+
+
+        </ScrollView>
+
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="10">
+            <Button x:Name="ButtonReload" Text="Reload" Command="{Binding ReloadImagesCommand}" BackgroundColor="Black" TextColor="White" CornerRadius="10" Padding="15"/>
+            <Button x:Name="ButtonUpload" Text="Upload" Command="{Binding UploadImageCommand}" BackgroundColor="Black" TextColor="White" CornerRadius="10" Padding="15"/>
+        </StackLayout>
+
+    </StackLayout>
+
+
+</ContentPage>
